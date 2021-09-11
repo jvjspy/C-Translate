@@ -1,0 +1,30 @@
+{
+  "name": "C-Translate",
+  "description": "An English - English dictionary powered by Cambridge",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "contextMenus",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["node_modules/ejs/ejs.min.js", "content.js"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": ["template.ejs"],
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
