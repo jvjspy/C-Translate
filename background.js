@@ -33,14 +33,12 @@ async function translate(text) {
   });
   return res;
 }
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.contextMenus.create({
-    id: "translate",
-    title: "C-Translate",
-    contexts: ["selection"],
-  });
-  chrome.contextMenus.onClicked.addListener(handleTranslate);
+chrome.contextMenus.create({
+  id: "translate",
+  title: "C-Translate",
+  contexts: ["selection"],
 });
+chrome.contextMenus.onClicked.addListener(handleTranslate);
 function handleTranslate(data) {
   if (data.menuItemId == "translate") {
     chrome.tabs.query(
